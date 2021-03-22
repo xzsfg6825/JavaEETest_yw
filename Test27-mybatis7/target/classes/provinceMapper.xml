@@ -5,7 +5,7 @@
 <mapper namespace="org.sang.db.ProvinceMapper">
     <resultMap id="provinceResultMapper" type="org.sang.bean.Province">
         <id column="id" property="id"/>
-        <association property="alias" column="id" select="org.sang.db.AliasMapper.findAliasByPid" fetchType="lazy"/>
+        <association property="alias" column="id" select="org.sang.db.AliasMapper.findAliasByPid" fetchType="eager"/>
         <collection property="cities" column="id" select="org.sang.db.CityMapper.findCityByPid" fetchType="lazy"/>
         <discriminator javaType="int" column="area">
             <case value="1" resultMap="noodleResultMap"></case>
